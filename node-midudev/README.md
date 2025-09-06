@@ -14,3 +14,13 @@
   - Segunda aplicación --> función para buscar pertos disponibles
 
 ## 2° Curso Desarrollando una API con Express desde cero
+  - Protocols HTTP --> Request y Response --> Img disponible
+  - Rutas y Not Found
+  - Status Code --> Img disponible
+  - Headers (cabeceras)
+  - Primer Api con Node --> http método GET
+  - Primer Api con Node --> http método POST
+  - Instalación de Express --> Migración de POST y GET Nativo de Node a Express
+  - Status 404
+  - Uso de Meddliwares
+     
