@@ -18,10 +18,30 @@ const processRequest = (req, res) => {
           res.setHeader('Content-Type', 'text/html; utf-8');
           res.end("<h1>404</h1>")
       }
-    // case 'Post':
+    case 'POST':
+      switch (url) {
+        case '/pokemon': {
+          let body = ''
+          // Escuchar el evento data --> cuando queremos mandar información usamos el request
+          req.on('data', chunk => {
+            body += chunk.toString();
+          })
+
+          req.on('end', () => {
+            const data = JSON.parse(body)
+            // llamar a una base de datos para guardar la info
+            res.writeHead(201, { 'Content-type': 'application/json; charset=utf-8' });
+            res.end(JSON.stringify(data));
+          })
+
+          break;
+        }
+        default:
+          res.statusCode = 404 // Not Found
+          res.setHeader('Content-Type', 'text/html; utf-8');
+          res.end("<h1>404</h1>")
+      }
   }
-
-
 }
 
 const sever = http.createServer(processRequest);
