@@ -25,6 +25,11 @@ app.post('/pokemon', (req, res) => {
   })
 })
 
+// Status 404
+app.use((req,res) => {
+  res.status(404).send('<h1>404 Not Found</h1>')
+})
+
 
 app.listen(PORT, () => {
   console.log(`Server listening on port http://localhost:${PORT}`);
