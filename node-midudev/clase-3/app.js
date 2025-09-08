@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express()
 const movies = require('./movies.json')
+const crypto = require('node:crypto')
 
 app.disable('x-powered-by')
+app.use(express.json())
 
 app.get('/', (req, res) => {
   res.json({ message: 'Hola NodeJS + Express' })
@@ -31,6 +33,37 @@ app.get('/movies/:id', (req, res) => {
   if (movie) return res.json(movie);
   res.status(404).json({ message: 'Movie not found' })
 })
+
+// Crear una Película
+app.post('/movies', (req, res) => {
+  const {
+    id,
+    title,
+    year,
+    director,
+    duration,
+    poster,
+    genre,
+    rate,
+  } = req.body;
+
+  const newMovie = {
+    id: crypto.randomUUID(), //uuid v4
+    title,
+    year,
+    director,
+    duration,
+    poster,
+    genre,
+    rate: rate ?? 0,
+  }
+
+  // Esto no sería REST, porque se esta guardando el estado de la aplicación en memoría
+  movies.push(newMovie);
+
+  res.status(201).json(movies);
+})
+
 
 const PORT = process.env.PORT ?? 3001
 
