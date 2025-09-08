@@ -10,7 +10,16 @@ app.get('/', (req, res) => {
 })
 
 // Todos los recursos que sean MOVIES se identifican con /movies
+// Recuperar todas las películas pero por género
 app.get('/movies', (req, res) => {
+  // Se puede obtener los query params que se coloque en el url --- /movies?genre=Terror ---
+  const { genre } = req.query
+  if (genre) {
+    const filteredMovies = movies.filter(
+      movie => movie.genre.some(g => g.toLowerCase() === genre.toLocaleLowerCase())
+    )
+    return res.json(filteredMovies)
+  }
   res.json(movies)
 })
 
@@ -18,9 +27,9 @@ app.get('/movies', (req, res) => {
 app.get('/movies/:id', (req, res) => {
   const { id } = req.params;
 
-  const movie = movies.find( movie => movie.id === id);
+  const movie = movies.find(movie => movie.id === id);
   if (movie) return res.json(movie);
-  res.status(404).json({message: 'Movie not found'})
+  res.status(404).json({ message: 'Movie not found' })
 })
 
 const PORT = process.env.PORT ?? 3001
