@@ -20,5 +20,6 @@ Content-Type: application/json
   "genre": [
     "Crime",
     "Drama"
-  ]
+  ],
+  "rate": 5 
 }
