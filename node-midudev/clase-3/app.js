@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const movies = require('./movies.json')
 const crypto = require('node:crypto')
-const { validateMovie } = require('./schemas/movieSchema')
+const { validateMovie, validatePartialMovie } = require('./schemas/movieSchema')
 
 app.disable('x-powered-by')
 app.use(express.json())
@@ -72,6 +72,32 @@ app.post('/movies', (req, res) => {
   res.status(201).json(movies);
 })
 
+// Actualizar una propiedad de la película
+app.patch('/movies/:id', (req, res) => {
+  const result = validatePartialMovie(req.body)
+
+  if (!result.success) {
+    return res.status(400).json({ error: JSON.parse(result.error.message) })
+  }
+
+  const { id } = req.params
+
+  const movieIndex = movies.findIndex(movie => movie.id === id);
+
+  if (movieIndex === -1) {
+    return res.status(404).json({ message: 'Movie not found' })
+  }
+
+  const upadateMovie = {
+    ...movies[movieIndex],
+    ...result.data
+  }
+
+  movies[movieIndex] = upadateMovie
+
+  return res.json(upadateMovie)
+
+})
 
 const PORT = process.env.PORT ?? 3001
 

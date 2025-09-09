@@ -22,6 +22,13 @@ function validateMovie(object) {
   return movieSchema.safeParse(object)
 }
 
+function validatePartialMovie(object) {
+  // Partial --> las propiedades serán opcionales, decide si se requiere cambiar multiples propiedades o solo una... 
+  return movieSchema.partial().safeParse(object)
+}
+
+
 module.exports = {
-  validateMovie
+  validateMovie,
+  validatePartialMovie
 }
