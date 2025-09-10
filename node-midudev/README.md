@@ -23,4 +23,14 @@
   - Instalación de Express --> Migración de POST y GET Nativo de Node a Express
   - Status 404
   - Uso de Meddliwares
-     
+
+## 3° SOLUCIÓN de CORS y Desarrollo de API REST con Express
+  - Instalación de express y creando un servidor con express
+  - Recuperación de movies con el método GET
+  - Recuéración de una movie por su ID "método GET"
+  - Filtrar por Género + query string
+  - Método POST, creación de una película, uuid con crypto
+  - Validación de datos con "ZOD"
+  - Cambiar INformación de una movie con el método PATCH
+  - POST vs PUT vs PATCH --> Img displonible
+  - CORS, Solución de cors con origin ó instalando un npm para express npm i cors, Método DELETE y visualización con HTML y JS
