@@ -13,7 +13,26 @@
 <body>
   <%- include('../partials/navigation') %>
 
-    <h1>Contact</h1>
+    <div class="container mt-5 d-flex justify-content-center align-items-center">
+      <div class="card animated flipInY bg-dark p-3 border-secondary">
+        <div class="card-header bg-dark text-white text-center">
+          <h3>Contact Me</h3>
+        </div>
+        <div class="card-body">
+          <form action="">
+            <div class="mb-3">
+              <label for="email">Email:</label>
+              <input class="form-control" type="text" placeholder="Email" />
+            </div>
+            <div class="mb-3">
+              <label for="email">Message:</label>
+              <textarea class="form-control" name="" cols="30" rows="10" placeholder="Message"></textarea>
+            </div>
+            <button class="btn btn-primary btn-block">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
 </body>
 
 </html>
