@@ -36,5 +36,5 @@ app.use('/movies', moviesRouter)
 const PORT = process.env.PORT ?? 3001
 
 app.listen(PORT, () => {
-  console.log(`Server Listening on port http://loaclhost:${PORT}`);
+  console.log(`Server Listening on port http://localhost:${PORT}`);
 })
