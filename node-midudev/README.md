@@ -34,3 +34,14 @@
   - Cambiar INformación de una movie con el método PATCH
   - POST vs PUT vs PATCH --> Img displonible
   - CORS, Solución de cors con origin ó instalando un npm para express npm i cors, Método DELETE y visualización con HTML y JS
+  
+## 4° EL PODER de la ARQUITECTURA MVC + Despliegue de API REST
+  - Despliegue de la API REST en FLO --> ya es de paga
+  - Uso de las variables de entorno
+  - Migrando de CommonJS a ESModules --> img disponible
+  - Importar JSON's
+  - Routes
+  - MVC -> img disponible
+  - Modelos, simplificación y separación por capas
+  - Controladores
+  - Introducción a una base de datos MongoDB --> --
