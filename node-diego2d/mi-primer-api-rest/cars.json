@@ -1,0 +1,92 @@
+[
+  {
+    "id": "dcdd0fad-a94c-4810-8acc-5f108d3b18c3",
+    "modelo": "Civic 2022",
+    "marca": "Honda",
+    "imagen": "https://images.hgmsites.net/hug/2022-honda-civic-sdn_100810827_h.jpg",
+    "motor": "2.0L I4 DOHC i-VTEC",
+    "precio": 489900,
+    "puntuacion": 4.7
+  },
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-1234567890ab",
+    "modelo": "Jetta GLI 2023",
+    "marca": "Volkswagen",
+    "imagen": "https://mundodoautomovelparapcd.com.br/wp-content/uploads/2022/12/volkswagen-jetta-gli-2023-01.jpg",
+    "motor": "2.0L Turbo TSI",
+    "precio": 565000,
+    "puntuacion": 4.5
+  },
+  {
+    "id": "f9e8d7c6-b5a4-3210-9876-abcdef123456",
+    "modelo": "Mazda 3 Hatchback 2019",
+    "marca": "Mazda",
+    "imagen": "https://mazdadealerbandung.com/wp-content/uploads/2021/10/Mazda-3-hatchback-1-scaled.jpg",
+    "motor": "2.5L Skyactiv-G",
+    "precio": 489000,
+    "puntuacion": 4.8
+  },
+  {
+    "id": "12345678-90ab-cdef-1234-567890abcdef",
+    "modelo": "Corolla SE 2023",
+    "marca": "Toyota",
+    "imagen": "https://i.gaw.to/vehicles/photos/40/29/402975-2023-toyota-corolla.jpg",
+    "motor": "2.0L Dynamic Force",
+    "precio": 455000,
+    "puntuacion": 4.6
+  },
+  {
+    "id": "abcdef12-3456-7890-abcd-ef1234567890",
+    "modelo": "Elantra N Line 2021",
+    "marca": "Hyundai",
+    "imagen": "https://cdni.autocarindia.com/ExtraImages/20200813105557_2021-Hyundai-Elantra-N-Line-front.jpg",
+    "motor": "1.6L Turbo GDI",
+    "precio": 475000,
+    "puntuacion": 4.4
+  },
+  {
+    "id": "7890abcd-1234-5678-90ef-abcdefabcdef",
+    "modelo": "Sentra SR 2023",
+    "marca": "Nissan",
+    "imagen": "https://i.gaw.to/vehicles/photos/40/30/403054-2023-nissan-sentra.jpg",
+    "motor": "2.0L DOHC",
+    "precio": 429000,
+    "puntuacion": 4.3
+  },
+  {
+    "id": "fedcba98-7654-3210-1234-56789abcdef0",
+    "modelo": "Peugeot 208 GT line 2019",
+    "marca": "Peugeot",
+    "imagen": "https://www.largus.fr/images/images/2019-peugeot-208-gt-line-01.jpg",
+    "motor": "1.2L PureTech Turbo",
+    "precio": 415000,
+    "puntuacion": 4.2
+  },
+  {
+    "id": "01234567-89ab-cdef-0123-456789abcdef",
+    "modelo": "Kia Forte GT 2020",
+    "marca": "Kia",
+    "imagen": "https://www.motortrend.com/uploads/sites/5/2018/10/2020-Kia-Forte-GT-05.jpg",
+    "motor": "1.6L Turbo GDI",
+    "precio": 445000,
+    "puntuacion": 4.5
+  },
+  {
+    "id": "13579bdf-2468-ace0-1357-9bdf2468ace0",
+    "modelo": "Chevrolet Malibu 2024",
+    "marca": "Chevrolet",
+    "imagen": "https://di-sitebuilder-assets.s3.amazonaws.com/GMimages/gmMLP/chevrolet/Malibu/2024/hero.jpg",
+    "motor": "1.5L Turbo ECOTEC",
+    "precio": 499000,
+    "puntuacion": 4.1
+  },
+  {
+    "id": "deadbeef-cafe-babe-face-feed12345678",
+    "modelo": "Renault Megane RS 2019",
+    "marca": "Renault",
+    "imagen": "https://www.hdcarwallpapers.com/walls/2019_renault_megane_rs_cup_chassis-HD.jpg",
+    "motor": "1.8L Turbo",
+    "precio": 599000,
+    "puntuacion": 4.9
+  }
+]
