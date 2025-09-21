@@ -1,8 +1,13 @@
 const express = require('express');
 const app = express();
+const cars = require('./cars.json');
 
-app.get('/', (req, res) => {
-  res.json({ modelo:'Mustang 1998', marca: 'ford' })
+app.disable('x-powered-by')
+app.use(express.json())
+
+app.get('/cars', (req, res) => {
+
+  res.json(cars)
 })
 
 const PORT = process.env.PORT ?? 3001;
