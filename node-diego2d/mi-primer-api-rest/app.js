@@ -22,8 +22,15 @@ app.get('/cars', (req, res) => {
   res.json(cars)
 })
 
+// Obtener un carro por ID
+app.get('/cars/:id', (req, res) => {
+  const { id } = req.params
+  const car = cars.find(car => car.id === id)
+  if (car) return res.json(car)
+  res.status(404).json({ message: "Car not founc" })
+})
+
 const PORT = process.env.PORT ?? 3001;
 app.listen(PORT, () => {
   console.log(`Server Listening on port http://localhost:${PORT}`);
-
 })
