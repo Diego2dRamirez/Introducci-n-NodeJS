@@ -11,3 +11,19 @@ PATCH http://localhost:3000/products
 
 ###
 DELETE http://localhost:3000/products
+
+
+### REQUEST_BODY --> texto plano
+POST http://localhost:3000/user
+Content-Type: text/plain
+
+Diego Ramirez - Usuario nuevo
+
+### REQUEST_BODY --> FORMATO JSON
+POST  http://localhost:3000/user
+Content-Type: application/json
+
+{
+  "name": "Diego",
+  "email": "diego.ramirez2d03@gamil.com"
+}
