@@ -25,6 +25,12 @@ function validateCar(object) {
   return carSchema.safeParse(object)
 }
 
+function validatePartialCar(object) {
+  // Partial --> Las propiedades serán opcionales, decide si se requiere cambiar multiples propiedades o solo una
+  return carSchema.partial().safeParse(object)
+}
+
 module.exports = {
   validateCar,
+  validatePartialCar
 }

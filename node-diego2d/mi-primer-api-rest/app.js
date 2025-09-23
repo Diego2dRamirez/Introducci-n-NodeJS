@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cars = require('./cars.json');
 const crypto = require('crypto')
-const { validateCar } = require('./schemas/carsSchema');
+const { validateCar, validatePartialCar } = require('./schemas/carsSchema');
 
 app.disable('x-powered-by')
 app.use(express.json())
@@ -48,6 +48,31 @@ app.post('/cars', (req, res) => {
   res.status(201).json(newCar);
 
 })
+
+app.patch('/cars/:id', (req, res) => {
+  const result = validatePartialCar(req.body)
+
+  if (!result.success) {
+    return res.status(400).json({ error: JSON.parse(result.error.message) })
+  }
+
+  const { id } = req.params;
+  const carIndex = cars.findIndex(car => car.id === id);
+
+  if (carIndex === -1) {
+    return res.status(404).json({ message: 'Car not found' })
+  }
+
+  const updateCar = {
+    ...cars[carIndex],
+    ...result.data
+  }
+
+  cars[carIndex] = updateCar
+  return res.json(updateCar)
+
+})
+
 
 const PORT = process.env.PORT ?? 3001;
 app.listen(PORT, () => {
