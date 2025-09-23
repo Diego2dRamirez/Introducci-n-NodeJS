@@ -8,7 +8,19 @@ GET http://localhost:3001/cars?marca=toyota
 GET http://localhost:3001/cars/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
 
 ### Agreagar un nuevo carro
-POST http://localhost:3001/cars/cars
+POST http://localhost:3001/cars
+Content-Type: application/json
+
+{
+ "modelo": "Mustang 1969",
+ "marca": "Ford",
+ "imagen": "https://www.mustangspecs.com/wp-content/uploads/2020/09/932435-scaled.jpg",
+ "motor": "v8",
+ "precio": 100000,
+ "puntuacion": 4.5
+}
+
+
 
 ### Actualizar un carro con PATCH
 PATCH  http://localhost:3001/cars/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
