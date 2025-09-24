@@ -12,3 +12,15 @@ Content-Type: application/json
 
 ### Product by ID
 GET http://localhost:3000/products/2
+
+### Delete product by ID
+DELETE http://localhost:3000/products/2
+
+### Actualizar 
+PUT http://localhost:3000/products/2
+Content-Type: application/json
+
+{
+  "name": "mouse gaming",
+  "price": 200
+}
