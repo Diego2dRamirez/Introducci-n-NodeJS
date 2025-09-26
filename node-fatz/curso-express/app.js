@@ -14,5 +14,5 @@ app.use(HomeRoutes)
 app.use(UserRoutes)
 
 app.listen('3000', () => {
-  console.log(`Server ${app.get('appName')} on port 3000`);
+  console.log(`Server on port 3000`);
 })

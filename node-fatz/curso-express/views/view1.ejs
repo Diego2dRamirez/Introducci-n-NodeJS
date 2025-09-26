@@ -11,7 +11,21 @@
       <%= p %>
     </p>
 
-    <%- include('./partials/footer'); %>
+    <% if (isActive) { %>
+      <p>El servidor esta activo</p>
+      <% } else { %>
+        <p>El servidor esta inactivo</p>
+        <% } %>
+
+          <ul>
+            <% for(let l=0; l < users.length; l++) { %>
+              <li>
+                <%= users[l].name %>
+              </li>
+              <% } %>
+          </ul>
+        
+          <%- include('./partials/footer'); %>
   </body>
 
 </html>
