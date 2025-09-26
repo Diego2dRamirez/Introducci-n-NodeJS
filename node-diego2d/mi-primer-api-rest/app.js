@@ -2,10 +2,12 @@ const express = require('express');
 const app = express();
 const cars = require('./cars.json');
 const crypto = require('crypto')
+const cors = require('cors')
 const { validateCar, validatePartialCar } = require('./schemas/carsSchema');
 
 app.disable('x-powered-by')
 app.use(express.json())
+app.use(cors())
 
 app.get('/cars', (req, res) => {
   const { marca } = req.query

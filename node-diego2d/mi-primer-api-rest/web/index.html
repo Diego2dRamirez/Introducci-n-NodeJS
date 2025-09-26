@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="icon" href="data:,"> -->
+  <title>API REST</title>
+  <style>
+    body {
+      background: #202020;
+      color: #fff;
+      display: grid;
+      place-items: center;
+    }
+
+    article {
+      padding: 1rem;
+      width: 20rem;
+      border: 2px solid #fffff0;
+      margin-bottom: 3rem;
+      border-radius: 2rem;
+      box-shadow: .5rem .5rem 1rem #fff;
+    }
+
+    img {
+      width: 100%;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>API REST</h1>
+  <div id="root">
+
+  </div>
+
+
+  <script>
+    fetch('http://localhost:3001/cars')
+      .then(res => res.json())
+      .then(data => {
+        const root = data.map(car => {
+          return `
+          <article data-id="${car.id}">
+            <h2> ${car.modelo} </h2>
+            <p>
+              ${car.marca}
+            </p>
+            <img src="${car.imagen}" alt="${car.modelo}"/>
+            <p>
+              ${car.motor}
+            </p>
+
+            </p>
+              $${car.precio}
+            </p>
+
+            </p>
+              ${car.puntuacion} ⭐⭐⭐⭐
+            </p>
+          </article>
+          `
+        }).join('')
+        document.getElementById('root').innerHTML = root
+      }
+      )
+
+  </script>
+
+</body>
+
+</html>
