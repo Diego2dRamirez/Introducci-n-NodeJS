@@ -3,10 +3,13 @@ const { Router } = require('express')
 const router = Router()
 
 router.get('/', (req, res) => {
-  res.send('Hello express')
+  const title = ' Mi página creada desde Express'
+  const p = 'Soy una variable desde Express'
+
+  res.render('view1', { title, p })
 })
 router.get('/weather', (req, res) => {
-  res.send('The current weather is Nice')
+  res.render('view2')
 })
 
 module.exports = router

@@ -21,7 +21,7 @@ app.use('/public', express.static('./static'))
 // Se puede tener más de una carpeta estatica
 // app.use('/uploads', express.static('./uploads'))
 
-// Si el arichivo a levantar el servidor se encuentra dentro de una carpeta --> src/server.js <-- se debe ingresar:
+// Si el arichivo a buscar se encuentra dentro de una carpeta --> src/server.js <-- se debe ingresar:
 app.use('/public', express.static(path.join(__dirname, './static')))
 
 
