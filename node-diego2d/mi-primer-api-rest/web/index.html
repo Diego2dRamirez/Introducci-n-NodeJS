@@ -27,6 +27,18 @@
       width: 100%;
     }
 
+    button {
+      background: #ff0000;
+      color: #fff;
+      border: none;
+      border-radius: .5rem;
+      padding: .5rem;
+      cursor: pointer;
+
+      &:hover {
+        background: rgb(188, 19, 19);
+      }
+    }
   </style>
 </head>
 
@@ -61,10 +73,32 @@
             </p>
               ${car.puntuacion} ⭐⭐⭐⭐
             </p>
+
+            <button>
+              Eliminar
+            </button>
           </article>
           `
         }).join('')
         document.getElementById('root').innerHTML = root
+
+        document.addEventListener('click', (e) => {
+          if (e.target.matches('button')) {
+            const article = e.target.closest('article')
+            const id = article.dataset.id
+
+            fetch(`http://localhost:3001/cars/${id}`, {
+              method: 'DELETE'
+            })
+              .then(res => {
+                if (res.ok) {
+                  article.remove()
+                }
+              })
+          }
+
+        })
+
       }
       )
 

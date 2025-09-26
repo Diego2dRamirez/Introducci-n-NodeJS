@@ -75,6 +75,18 @@ app.patch('/cars/:id', (req, res) => {
 
 })
 
+app.delete('/cars/:id', (req, res) => {
+  const { id } = req.params
+  const carIndex = cars.findIndex(car => car.id === id)
+
+  if (carIndex === -1) {
+    return res.status(404).json({ message: 'Car not found' })
+  }
+
+  cars.splice(carIndex, 1)
+  return res.json({ message: 'Car delete' })
+})
+
 
 const PORT = process.env.PORT ?? 3001;
 app.listen(PORT, () => {
