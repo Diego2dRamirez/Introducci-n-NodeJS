@@ -1,13 +1,17 @@
-const express = require('express');
-const app = express();
-const cars = require('./cars.json');
-const crypto = require('crypto')
-const cors = require('cors')
-const { validateCar, validatePartialCar } = require('./schemas/carsSchema');
+import express from 'express'
+// const cars = require('./cars.json');
+import { randomUUID } from 'node:crypto';
+import cors from 'cors';
+import { validateCar, validatePartialCar } from './schemas/carsSchema.js';
+import { createRequire } from 'node:module';
 
+const app = express();
 app.disable('x-powered-by')
 app.use(express.json())
 app.use(cors())
+
+const require = createRequire(import.meta.url);
+const cars = require('./cars.json')
 
 app.get('/cars', (req, res) => {
   const { marca } = req.query
@@ -43,7 +47,7 @@ app.post('/cars', (req, res) => {
   }
 
   const newCar = {
-    id: crypto.randomUUID(),
+    id: randomUUID(),
     ...result.data
   }
   cars.push(newCar);
