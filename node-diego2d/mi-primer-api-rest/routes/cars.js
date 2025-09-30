@@ -1,60 +1,44 @@
 import { Router } from 'express';
-import { randomUUID } from 'node:crypto';
-import { validateCar, validatePartialCar } from '../schemas/carsSchema.js'
-import { createRequire } from 'node:module';
-
-
-const require = createRequire(import.meta.url);
-const cars = require('../cars.json')
+import { validateCar, validatePartialCar } from '../schemas/carsSchema.js';
+import { CarModel } from '../models/car.js';
 
 export const carsRouter = Router();
 
 // Obtener todos los carros
-carsRouter.get('/', (req, res) => {
+carsRouter.get('/', async (req, res) => {
   const { marca } = req.query
 
-  if (marca) {
-    const filteredCars = cars.filter(
-      car => car.marca.toLocaleLowerCase() === marca.toLocaleLowerCase()
-    )
-
-    if (filteredCars.length === 0) {
-      res.status(404).json({ message: 'Marca no encontrada' })
-    }
-    return res.json(filteredCars)
+  const cars = await CarModel.getAll({ marca })
+  if (cars.length === 0) {
+    return res.status(404).json({ message: 'Marca no encontrada' })
   }
-
   res.json(cars)
 });
 
 // Obtener un carro por ID
-carsRouter.get('/:id', (req, res) => {
+carsRouter.get('/:id', async (req, res) => {
   const { id } = req.params
-  const car = cars.find(car => car.id === id)
+  const car = await CarModel.getByID({ id })
   if (car) return res.json(car)
-  res.status(404).json({ message: "Car not founc" })
+  return res.status(404).json({ message: "Car not founc" })
 });
 
 
 // Agregar un nuevo carro
-carsRouter.post('/', (req, res) => {
+carsRouter.post('/', async (req, res) => {
   const result = validateCar(req.body);
 
-  if (result.error) {
+  if (!result.success) {
     return res.status(400).json({ error: JSON.parse(result.error.message) })
   }
 
-  const newCar = {
-    id: randomUUID(),
-    ...result.data
-  }
-  cars.push(newCar);
+  const newCar = await CarModel.create({ input: result.data })
   res.status(201).json(newCar);
 
 });
 
 // Actualizar uno o varios datos de un carro
-carsRouter.patch('/:id', (req, res) => {
+carsRouter.patch('/:id', async (req, res) => {
   const result = validatePartialCar(req.body)
 
   if (!result.success) {
@@ -62,31 +46,20 @@ carsRouter.patch('/:id', (req, res) => {
   }
 
   const { id } = req.params;
-  const carIndex = cars.findIndex(car => car.id === id);
+  const updateCar = await CarModel.updateCar({ id, input: result.data })
 
-  if (carIndex === -1) {
-    return res.status(404).json({ message: 'Car not found' })
-  }
-
-  const updateCar = {
-    ...cars[carIndex],
-    ...result.data
-  }
-
-  cars[carIndex] = updateCar
   return res.json(updateCar)
 
 });
 
-// 
-carsRouter.delete('/:id', (req, res) => {
+// Eliminar un carro
+carsRouter.delete('/:id', async (req, res) => {
   const { id } = req.params
-  const carIndex = cars.findIndex(car => car.id === id)
+  const carIndex = await CarModel.delete({ id })
 
   if (carIndex === -1) {
     return res.status(404).json({ message: 'Car not found' })
   }
 
-  cars.splice(carIndex, 1)
   return res.json({ message: 'Car delete' })
 })
