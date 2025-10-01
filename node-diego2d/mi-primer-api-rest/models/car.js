@@ -10,7 +10,7 @@ export class CarModel {
       // )
 
       return cars.filter(
-        car => car.marca.toLocaleLowerCase() === marca.toLocaleLowerCase()
+        car => car.marca?.toLocaleLowerCase() === marca.toLocaleLowerCase()
       )
       // if (filteredCars.length === 0) {
       //  return res.status(404).json({ message: 'Marca no encontrada' })

@@ -2,7 +2,7 @@
 GET http://localhost:3001/cars
 
 ### Obtener un carro por marca
-GET http://localhost:3001/cars?marca=ford
+GET http://localhost:3001/cars?marca=honda
 
 ### Obtener un carro por ID
 GET http://localhost:3001/cars/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
